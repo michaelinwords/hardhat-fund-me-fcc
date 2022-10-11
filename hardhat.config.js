@@ -5,8 +5,6 @@ require("@nomicfoundation/hardhat-toolbox")
  // if we use this deploy, we should also add hardhat-deploy-ethers
  // the next line overrides hardhat-ethers, replacing it with hardhat-deploy-ethers
  // yarn add --dev @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers
- require("hardhat-deploy-ethers")
-
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
