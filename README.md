@@ -1,13 +1,5 @@
-# Sample Hardhat Project
+# HARDHAT FUND ME - FREE CODE CAMP TUTORIAL
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+## Notes:
+- We can run "yarn hardhat deploy --tags mocks" to only deploy scripts which are tagged with "mocks"; we tag a script by defining its tags in module.exports.tags = []
+- Every time we run a node with "yarn hardhat node" now, it will automatically have our deployed contracts running on it
