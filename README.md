@@ -27,3 +27,8 @@
 - anytime we write to storage, a lot of gas is spent; the opcodes (which we can see in our contract details) represents the literal computational work required to execute our code (adding requires 3 gas, multiplying 5 gas, subtracting 3 gas, etc; see values at github.com/cryptic/evm-opcodes)
     > sload (800 gas) and sstore (20000 gas) are two of the most expensive gas functions, due to their frequent usage
 - due to this interaction with storage being expensive, it is common practice to append any variable with s (s_variable) so we know it is interacting with storage (and i for immutables, like i_variable; and CAPS for CONSTANTS)
+- private and internal variables are also cheaper
+- it's also cheaper to revert and store error codes  than to store requires with long strings
+
+## Other Notes:
+- remember, we can add a "scripts": {} section to our package.json to make running scripts a lot easier
