@@ -4,6 +4,10 @@ pragma solidity ^0.8.8;
 // to use this line in hardhat: yarn add --dev @ chainlink/contracts (remove space after @)
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./PriceConverter.sol";
+// importing strings library from open zeppelin to help with concatenation/interpolation (sp. placing ints in strings)
+import "@openzeppelin/contracts/utils/Strings.sol";
+// importing console logging
+import "hardhat/console.sol";
 
 // this is a styling convention that helps us know which contract is throwing which error
 error FundMe__NotOwner();
@@ -54,6 +58,8 @@ contract FundMe {
      *  @dev This implements price feeds as our library
      */
     function fund() public payable {
+        console.log("FUNDME - msg.value is %s, converted amount is %s", msg.value, msg.value.getConversionRate(s_price_feed));
+        // string memory msg_value_error_string = string(bytes.concat("You need to spend more ETH! - msg.value was: ", bytes32(msg.value)));
         require(msg.value.getConversionRate(s_price_feed) >= MINIMUM_USD, "You need to spend more ETH!");
         // require(PriceConverter.getConversionRate(msg.value) >= MINIMUM_USD, "You need to spend more ETH!");
         s_addressToAmountFunded[msg.sender] += msg.value;
